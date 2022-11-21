@@ -1,0 +1,304 @@
+:root {
+    --fuente-heading: 'PT Sans', sans-serif;
+    --fuente-parrafo: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --gris: #E1E1E1;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* para que 1rem = 10px */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuente-parrafo);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/* Globales */
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    /* width: min(90%, 120rem); */
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuente-heading);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Utilidades */
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+
+/* Header */
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header {
+    background-image: url(../img/banner.jpg);
+}
+.header {
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; /* la imagen de fondo se centra con el cambio de tamaño de la pantalla */
+}
+.header__text {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .header__text {
+        margin-top: 15rem;
+    }
+}
+
+.barra {
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    color: var(--blanco);
+}
+.logo__nombre {
+    font-weight: normal; /* normal = 400 */
+}
+.logo__bold {
+    font-weight: bold; /* bold = 700 */
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* 66.6% 33.3% */
+        column-gap: 4rem;
+    }
+}
+
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.boton {
+    display: block;
+    font-family: var(--fuente-heading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem; /* arriba-abajo izquierda-derecha */
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold; /* 700 */
+    margin-bottom: 2rem;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: var(--negro);
+}
+.boton--secundario {
+    background-color: var(--primario);
+}
+
+.cursos {
+    list-style: none;
+}
+
+.widget-curso {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.widget-curso:last-of-type {
+    border: none;
+    margin-bottom: none;
+}
+.widget-curso__label {
+    font-family: var(--fuente-heading);
+    font-weight: bold;
+}
+.widget-curso__info {
+    font-weight: normal;
+}
+.widget-curso__label, .widget-curso__info {
+    font-size: 2rem;
+}
+
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+/* Sobre Nosotros */
+@media (min-width: 768px) {
+    /* Distribución del contenido en 2 mitades utilizando grid */
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    /* Distribución del contenido en 2 mitades utilizando flexbox
+    .sobre-nosotros {
+        display: flex;
+        gap: 2rem;
+        // En caso de que gap no funcione //
+        justify-content: space-between;
+    }    
+    .sobre-nosotros__imagen, .sobre-nosotros__texto {
+        flex-basis: 50%;
+        // En caso de que gap no funcione //
+        flex-basis: calc(50% - 1rem); 
+    } */
+
+    /* CSS utilizando el factor de crecimiento
+    .sobre-nosotros__imagen {
+        flex: 1;
+    }
+    .sobre-nosotros__texto {
+        flex: 2;
+    } */
+
+    /* CSS utilizando el factor de crecimiento con formato flex-basis
+    .sobre-nosotros__imagen {
+        flex: 0 0 calc(50% - 1rem);
+    }
+    .sobre-nosotros__texto {
+        flex: 0 0 calc(50% - 1rem);
+    } */
+}
+
+/* Cursos */
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+/* La forma correcta sería añadir estos estilos a widget-curso */
+.curso__label {
+    font-family: var(--fuente-heading);
+    font-weight: bold;
+}
+.curso__info {
+    font-weight: normal;
+}
+.curso__label, .curso__info {
+    font-size: 2rem;
+}
+
+/* Contacto */
+.contacto-bg {
+    background-image: url(../img/contacto.jpg); /* insertar imagen de fondo de contacto-bg */
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%; /* no toma todo el espacio disponible */
+    padding: 5rem;
+}
+.campo {
+    display: flex; /* para hacer uso de flex: */
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+.campo__label {
+    flex: 0 0 9rem; /* 0 = el elemento no va a crecer (no hay factor de crecimiento
+                       9rem = width/base/basis)*/
+    text-align: right;
+    /* padding-right: 2rem; si gap no tiene soporte*/
+}
+.campo__field {
+    flex: 1; /* Ocupa todo el espacio disponible porque .campo__label no tiene factor de crecimiento */
+    border: 1px solid var(--gris);
+}
+.campo__field--textarea {
+    height: 20rem;
+}
